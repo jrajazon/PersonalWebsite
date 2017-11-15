@@ -1,32 +1,53 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>JrajazonArtWeb</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
     body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    html, body {
+        height: 100%;/* 設定body高度為100% 拉到視窗可視的大小 */
+    }
     
-    .page-content{
-        max-width:1400px;
+    #web-wrapper{
+        min-height: 100%;/* 設定高度最小為100%, 如果內容區塊很多, 可以長大 */
+        position: relative;/* 位置設為relative, 作為footer區塊位置的參考 */
+    }
+    #web-content {
+        /* 留出header及footer區塊的空間 */
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    #web-footer {
+        /* 設定footer的高度 */
+        height: 80px;
+        box-sizing: border-box;
+        /* 設定footer絕對位置在底部 */
+        position: absolute;
+        bottom: 0;
+        /* 展開footer寬度 */
+        width: 100%;
+    }
+    .web-content{
+        max-width:1350px;
         margin:auto;
     }
     .portrait-about{
-        border-radius: 40%;
+        border-radius: 50%;
     }
-    #gallery-list-1{
+    /*#gallery-list{
         display: block;
         width: 100%;
-        
-    }
+    }*/
     .list{
         display: inline-block;/*auto change row*/
     }
     .img-content{
         width:auto;
         height:250px;
-        margin-bottom:6px;
+        margin-bottom:-3px;
         cursor: pointer;
     }
     
@@ -54,7 +75,7 @@
         background-color:rgb(0,0,0);
         background-color:rgba(0,0,0,0.1);
     }
-    .button{
+    /*.button{
         border:none;
         display:inline-block;
         outline:0;
@@ -73,165 +94,273 @@
         -moz-user-select:none;
         -ms-user-select:none;
         user-select:none;
+    }*/
+    .tab {
+        overflow: hidden;
+        background-color:#333;
+    }
+    .logo {
+        overflow: hidden;
+        background-color:#000;
+    }
+    .logo button {
+        
+        background-color: inherit;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 15px 20px;
+        
+        color:#fff;
+        font-size: 30px;
+        width:auto;
+        
+    }
+    
+    .tab button {
+        background-color: inherit;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        /*padding: 15px 20px;*/
+        transition: 0.3s;
+        color:#fff;
+        font-size: 20px;
+        background: #000;
+        width:100px;
+        height:40px;
+        
+    }
+    .tab button:hover {
+        background-color: #ccc;
+    }
+    .tab button.active {
+        background-color: #616161;
+    }
+    .pageContent {
+        display: none;
+        padding: 0px 0px;
+        -webkit-animation: fadeEffect 1s;/*fadeEffect*/
+        animation: fadeEffect 1s;/*fadeEffect*/
+    }
+    @-webkit-keyframes fadeEffect {/*fadeEffect*/
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+    @keyframes fadeEffect {/*fadeEffect*/
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+    
+    .bg {
+        /* The image used */
+        background-image: url("https://pre00.deviantart.net/e051/th/pre/i/2017/316/9/3/begin_by_jrajazon-dbqc40p.jpg");
+
+        /* Full height */
+        height: 100%; 
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .footer-padding{
+        padding:2px 10px;
+    }
+    .container{
+        display:block;
+        width:100%;
+        margin-bottom:-10px;
+    }
+    .absolute {
+        z-index:2;
+        position:absolute;
+        width:440px;
+        height:0px;
+        top:15px;
+        right:0;
+        bottom:0;
+        left:0;
+        margin:auto;
     }
 </style>
-<body class="w3-light-grey">
+<body>
 
-    <!-- Sidebar/menu -->
-    <!--<nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
-      <a href="javascript:void()" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-32">CLOSE</a> 
-      <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">PORTFOLIO</a> 
-      <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">ABOUT ME</a> 
-      <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">CONTACT</a>
-    </nav>-->
-
-    <!-- Top menu on small screens -->
-    <header class="w3-container w3-top w3-white w3-large w3-padding-8">
-      <span class="w3-left w3-padding w3-xlarge"><a href="#" class="w3-xlarge button w3-white" >Jrajazon's Artwork</a></span>
+    <div id="web-wrapper" class="w3-dark-grey">
         
-        <div class="w3-right w3-medium w3-padding">
-            <a href="#" class=" w3-button w3-white" >PORTFOLIO</a>
-            <a href="#about" class=" w3-button w3-white" >ABOUT ME</a>
-            <a href="#contact" class=" w3-button w3-white" >CONTACT</a>
-        </div>
-      
-    </header>
-
-    <!-- Overlay effect when opening sidebar on small screens -->
-    <!--<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>-->
-
-    <!-- !PAGE CONTENT! -->
-    <div class="w3-main page-content" style="margin-top:150px">
-        
-      <!-- Photo grid -->
-        <div id="gallery-list-1" class="w3-row" style="max-width:1600px;">
-            <div class="list" >
-                <img class="img-content" src="https://pre00.deviantart.net/e051/th/pre/i/2017/316/9/3/begin_by_jrajazon-dbqc40p.jpg" onclick="onClick(this)" alt="Begin">
-            </div>
-            <div class="list">
-                <img class="img-content" src="https://pre00.deviantart.net/3907/th/pre/i/2017/316/1/3/devil_by_jrajazon-dbp7vb7.jpg" onclick="onClick(this)" alt="Devil">
-            </div>
-            <div class="list">
-                <img class="img-content" src="https://img00.deviantart.net/e103/i/2017/236/8/e/portrait_practice_by_jrajazon-dbl5b6s.jpg" onclick="onClick(this)" alt="Portrait Practice">
-            </div>
-            <div class="list">
-                <img class="img-content" src="https://pre00.deviantart.net/cd8d/th/pre/i/2017/316/0/3/raiden_mei_by_jrajazon-dbkg79g.jpg" onclick="onClick(this)" alt="Raiden Mei">
-            </div>
-            <div class="list">
-                <img class="img-content" src="https://pre00.deviantart.net/9bd3/th/pre/i/2017/317/8/e/yaesakura_by_jrajazon-dbkg6zk.jpg" onclick="onClick(this)" alt="Yaesakura">
-            </div>
-            <div class="list">
-                <img class="img-content" src="https://pre00.deviantart.net/1d7c/th/pre/i/2017/317/6/1/angel___by_jrajazon-dbkg6ul.jpg" onclick="onClick(this)" alt="Angel">
-            </div>
+        <!-- Top menu on small screens -->
+        <header class="w3-top">
+        <!--<header class="w3-container w3-top w3-black w3-large w3-padding-8">-->
             
-        </div>
-        <div id="gallery-list-2" class="w3-row" style="max-width:1600px;">
-            <div class="list">
-                <img class="img-content" src="https://pre00.deviantart.net/2998/th/pre/i/2017/317/9/0/war_begin_by_jrajazon-dbkg6op.jpg" onclick="onClick(this)" alt="War Begin">
+                <div class="container logo">
+                    <button class="pagelinks w3-left w3-black" onclick="openPage(event, 'home')">Jrajazon's Artwork</button>
+                </div>
+                
+                <div class="tab  container">
+                    <div class="absolute">
+                    <button class="pagelinks" onclick="openPage(event, 'home')" href="#"> Home</button>
+                    <button class="pagelinks" onclick="openPage(event, 'portfolio')" href="#web-content">Portfolio</button>
+                    <button class="pagelinks" onclick="openPage(event, 'about')" href="#">About</button>
+                    <button class="pagelinks" onclick="openPage(event, 'contact')" href="#">Contact</button>
+                    </div>
+                </div>
+            
+          <!--<span class="w3-left w3-padding w3-xlarge" ><a href="#" class="w3-xlarge button w3-black">Jrajazon's Artwork</a></span>
+
+            <div class="w3-right w3-medium w3-padding">
+                <a href="#" class=" w3-button w3-black" >PORTFOLIO</a>
+                <a href="#about" class=" w3-button w3-black" >ABOUT ME</a>
+                <!--<a href="#contact" class=" w3-button w3-white" >CONTACT</a>
+            </div>-->
+
+        </header>
+        
+        
+        <div class="w3-dark-grey"></div>
+        <!-- Overlay effect when opening sidebar on small screens -->
+        <!--<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>-->
+
+        <!-- !PAGE CONTENT! -->
+        <div id="web-content" class="web-content" style="position:relative; padding-top:150px">
+          <!-- Home -->
+            <div id="home" >
+            
+            
+            
             </div>
-            <div class="list">
-                <img class="img-content" src="https://img00.deviantart.net/cd55/i/2017/229/6/d/portrait_by_jrajazon-dbkg6kq.jpg" onclick="onClick(this)" alt="Portrait">
+                            
+          <!-- Photo grid -->
+            <div id="portfolio" class="w3-row pageContent" style="max-width:1600px;">
+                <div class="list" >
+                    <img class="img-content" src="https://pre00.deviantart.net/e051/th/pre/i/2017/316/9/3/begin_by_jrajazon-dbqc40p.jpg" onclick="onClick(this)" alt="Begin">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://pre00.deviantart.net/3907/th/pre/i/2017/316/1/3/devil_by_jrajazon-dbp7vb7.jpg" onclick="onClick(this)" alt="Devil">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://img00.deviantart.net/e103/i/2017/236/8/e/portrait_practice_by_jrajazon-dbl5b6s.jpg" onclick="onClick(this)" alt="Portrait Practice">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://pre00.deviantart.net/cd8d/th/pre/i/2017/316/0/3/raiden_mei_by_jrajazon-dbkg79g.jpg" onclick="onClick(this)" alt="Raiden Mei">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://pre00.deviantart.net/9bd3/th/pre/i/2017/317/8/e/yaesakura_by_jrajazon-dbkg6zk.jpg" onclick="onClick(this)" alt="Yaesakura">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://pre00.deviantart.net/1d7c/th/pre/i/2017/317/6/1/angel___by_jrajazon-dbkg6ul.jpg" onclick="onClick(this)" alt="Angel">
+                </div>
+
+                <div class="list">
+                    <img class="img-content" src="https://pre00.deviantart.net/2998/th/pre/i/2017/317/9/0/war_begin_by_jrajazon-dbkg6op.jpg" onclick="onClick(this)" alt="War Begin">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://img00.deviantart.net/cd55/i/2017/229/6/d/portrait_by_jrajazon-dbkg6kq.jpg" onclick="onClick(this)" alt="Portrait">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://pre00.deviantart.net/8334/th/pre/i/2017/317/5/0/dusk_maiden_of_amnesia_2_by_jrajazon-dbkg6dx.jpg" onclick="onClick(this)" alt="Dusk Maiden of Amnesia 2">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://img00.deviantart.net/a13a/i/2017/229/b/8/dusk_maiden_of_amnesia_by_jrajazon-dbkg60s.jpg" onclick="onClick(this)" alt="Dusk Maiden of Amnesia">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://pre00.deviantart.net/66a2/th/pre/i/2017/229/6/6/elf_by_jrajazon-dbkg5vr.jpg" onclick="onClick(this)" alt="Elf">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://img00.deviantart.net/2bb3/i/2017/317/f/5/blue_lantern_ghost_by_jrajazon-dbkg5hl.jpg" onclick="onClick(this)" alt="Blue Lantern Ghost">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://pre00.deviantart.net/7ee1/th/pre/i/2017/229/5/f/nier_2b_by_jrajazon-dbkg59s.jpg" onclick="onClick(this)" alt="Nier 2b">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://pre00.deviantart.net/2ba6/th/pre/i/2017/229/0/4/girl_by_jrajazon-dbkg53s.jpg" onclick="onClick(this)" alt="Girl">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://pre00.deviantart.net/80ed/th/pre/i/2017/229/0/d/woman_doodle_by_jrajazon-dbkg4xs.jpg" onclick="onClick(this)" alt="Woman Doodle">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://pre00.deviantart.net/0492/th/pre/i/2017/317/8/1/with_dragon_by_jrajazon-dbkg4s2.jpg" onclick="onClick(this)" alt="With Dragon">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://pre00.deviantart.net/2c53/th/pre/i/2017/317/b/0/blade_by_jrajazon-dbkg4es.jpg" onclick="onClick(this)" alt="Blade">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://pre00.deviantart.net/723f/th/pre/i/2017/229/3/d/pokemon_stella_1_by_jrajazon-dbkg45f.jpg" onclick="onClick(this)" alt="pokemon Stella">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://pre00.deviantart.net/8b52/th/pre/i/2017/229/5/7/man_02_02_by_jrajazon-dbkg3lu.jpg" onclick="onClick(this)" alt="Double Gun">
+                </div>
+                <div class="list">
+                    <img class="img-content" src="https://pre00.deviantart.net/f656/th/pre/i/2017/229/f/0/__by_jrajazon-dbkg23z.jpg" onclick="onClick(this)" alt="LOL POPSTAR Riven">
+                </div>
             </div>
-            <div class="list">
-                <img class="img-content" src="https://pre00.deviantart.net/8334/th/pre/i/2017/317/5/0/dusk_maiden_of_amnesia_2_by_jrajazon-dbkg6dx.jpg" onclick="onClick(this)" alt="Dusk Maiden of Amnesia 2">
+
+
+          <!-- Pagination -->
+          <!--<div class="w3-center w3-padding-32">
+            <div class="w3-bar">
+              <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+              <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+              <a href="#gallery-list-2" class="w3-bar-item w3-button w3-hover-black">2</a>
+              <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+              <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+              <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
             </div>
-            <div class="list">
-                <img class="img-content" src="https://img00.deviantart.net/a13a/i/2017/229/b/8/dusk_maiden_of_amnesia_by_jrajazon-dbkg60s.jpg" onclick="onClick(this)" alt="Dusk Maiden of Amnesia">
+          </div>-->
+
+          <!-- Modal for full size images on click-->
+          <div id="modal01" class="modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+            <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span><!--close button-->
+            <div class="modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+              <img id="img01" class="w3-image">
+              <p id="caption"></p>
             </div>
-            <div class="list">
-                <img class="img-content" src="https://pre00.deviantart.net/66a2/th/pre/i/2017/229/6/6/elf_by_jrajazon-dbkg5vr.jpg" onclick="onClick(this)" alt="Elf">
+          </div>
+
+          <!-- About section -->
+          <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32 pageContent" id="about">
+            <h2><b>About Me</b></h2>
+            <img src="https://orig00.deviantart.net/52e0/f/2015/023/c/4/profile_picture_by_jrajazon-d8f5aim.jpg" alt="Me" class="w3-image w3-padding-32 portrait-about" width="200" height="200">
+            <div class="w3-content w3-justify" style="max-width:600px">
+              <h3>Jrajazon (詹杰燊)</h3>
+              <p>Test
+              </p>
+              <p>mail: mrjacjas@gmail.com</p>
+
+              <!--<hr class="w3-opacity">
+              <h4 class="w3-padding-16">Technical Skills</h4>
+              <p class="w3-wide">Photography</p>
+              <div class="w3-white">
+                <div class="w3-container w3-padding-small w3-center w3-grey" style="width:95%">95%</div>
+              </div>
+              <p class="w3-wide">Web Design</p>
+              <div class="w3-white">
+                <div class="w3-container w3-padding-small w3-center w3-grey" style="width:85%">85%</div>
+              </div>
+              <p class="w3-wide">Photoshop</p>
+              <div class="w3-white">
+                <div class="w3-container w3-padding-small w3-center w3-grey" style="width:80%">80%</div>
+              </div>-->
             </div>
-            <div class="list">
-                <img class="img-content" src="https://img00.deviantart.net/2bb3/i/2017/317/f/5/blue_lantern_ghost_by_jrajazon-dbkg5hl.jpg" onclick="onClick(this)" alt="Blue Lantern Ghost">
+          </div>
+
+          <!-- Contact section -->
+          <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large pageContent web-content" id="contact">
+            <div class="w3-content" style="max-width:600px">
+              <h4 class="w3-center"><b>Contact Me</b></h4>
+              <p>Do you want me to photograph you? Fill out the form and fill me in with the details :) I love meeting new people!</p>
             </div>
-            <div class="list">
-                <img class="img-content" src="https://pre00.deviantart.net/7ee1/th/pre/i/2017/229/5/f/nier_2b_by_jrajazon-dbkg59s.jpg" onclick="onClick(this)" alt="Nier 2b">
-            </div>
-            <div class="list">
-                <img class="img-content" src="https://pre00.deviantart.net/2ba6/th/pre/i/2017/229/0/4/girl_by_jrajazon-dbkg53s.jpg" onclick="onClick(this)" alt="Girl">
-            </div>
-            <div class="list">
-                <img class="img-content" src="https://pre00.deviantart.net/80ed/th/pre/i/2017/229/0/d/woman_doodle_by_jrajazon-dbkg4xs.jpg" onclick="onClick(this)" alt="Woman Doodle">
-            </div>
-            <div class="list">
-                <img class="img-content" src="https://pre00.deviantart.net/0492/th/pre/i/2017/317/8/1/with_dragon_by_jrajazon-dbkg4s2.jpg" onclick="onClick(this)" alt="With Dragon">
-            </div>
-            <div class="list">
-                <img class="img-content" src="https://pre00.deviantart.net/2c53/th/pre/i/2017/317/b/0/blade_by_jrajazon-dbkg4es.jpg" onclick="onClick(this)" alt="Blade">
-            </div>
-            <div class="list">
-                <img class="img-content" src="https://pre00.deviantart.net/723f/th/pre/i/2017/229/3/d/pokemon_stella_1_by_jrajazon-dbkg45f.jpg" onclick="onClick(this)" alt="pokemon Stella">
-            </div>
-            <div class="list">
-                <img class="img-content" src="https://pre00.deviantart.net/8b52/th/pre/i/2017/229/5/7/man_02_02_by_jrajazon-dbkg3lu.jpg" onclick="onClick(this)" alt="Double Gun">
-            </div>
-            <div class="list">
-                <img class="img-content" src="https://pre00.deviantart.net/f656/th/pre/i/2017/229/f/0/__by_jrajazon-dbkg23z.jpg" onclick="onClick(this)" alt="LOL POPSTAR Riven">
-            </div>
+          </div>
+            
+            
+        <!-- End PAGE CONTENT -->
         </div>
         
-
-      <!-- Pagination -->
-      <div class="w3-center w3-padding-32">
-        <div class="w3-bar">
-          <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
-          <a href="#" class="w3-bar-item w3-black w3-button">1</a>
-          <a href="#gallery-list-2" class="w3-bar-item w3-button w3-hover-black">2</a>
-          <!--<a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
-          <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>-->
-          <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
-        </div>
-      </div>
-
-      <!-- Modal for full size images on click-->
-      <div id="modal01" class="modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
-        <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span><!--close button-->
-        <div class="modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-          <img id="img01" class="w3-image">
-          <p id="caption"></p>
-        </div>
-      </div>
-
-      <!-- About section -->
-      <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
-        <h2><b>About Me</b></h2>
-        <img src="https://orig00.deviantart.net/52e0/f/2015/023/c/4/profile_picture_by_jrajazon-d8f5aim.jpg" alt="Me" class="w3-image w3-padding-32 portrait-about" width="200" height="200">
-        <div class="w3-content w3-justify" style="max-width:600px">
-          <h3>Jrajazon (詹杰燊)</h3>
-          <p>Test
-          </p>
-          <p>mail: mrjacjas@gmail.com</p>
-          
-          <hr class="w3-opacity">
-          <h4 class="w3-padding-16">Technical Skills</h4>
-          <p class="w3-wide">Photography</p>
-          <div class="w3-white">
-            <div class="w3-container w3-padding-small w3-center w3-grey" style="width:95%">95%</div>
-          </div>
-          <p class="w3-wide">Web Design</p>
-          <div class="w3-white">
-            <div class="w3-container w3-padding-small w3-center w3-grey" style="width:85%">85%</div>
-          </div>
-          <p class="w3-wide">Photoshop</p>
-          <div class="w3-white">
-            <div class="w3-container w3-padding-small w3-center w3-grey" style="width:80%">80%</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Contact section -->
-      <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
-        <div class="w3-content" style="max-width:600px">
-          <h4 class="w3-center"><b>Contact Me</b></h4>
-          <p>Do you want me to photograph you? Fill out the form and fill me in with the details :) I love meeting new people!</p>
-        </div>
-      </div>
-
-      
-
-      <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="GithubPages" target="_blank" class="w3-hover-opacity">GithubPages</a></div>
-
-    <!-- End page content -->
+        
+        <!-- Page Bottom -->
+         <footer id="web-footer" class="footer-padding w3-black"> 
+            <div class="w3-center"><p style="font-size:12px;">Copyright © 2017 Jrajazon All rights reserved.</p><p style="font-size:12px;">Powered by <a href="https://pages.github.com/" title="GithubPages" target="_blank" class="w3-hover-opacity">Github Pages</a></p>
+            </div>
+        </footer>
     </div>
 
     <script>
@@ -252,6 +381,24 @@
           document.getElementById("modal01").style.display = "block";
           var captionText = document.getElementById("caption");
           captionText.innerHTML = element.alt;
+        }
+        
+        //Change pages
+        function openPage(evt, pageName) {
+            var i, pageContent, pagelinks;
+            pageContent = document.getElementsByClassName("pageContent");
+            for (i = 0; i < pageContent.length; i++) {
+                pageContent[i].style.display = "none";
+            }
+            pagelinks = document.getElementsByClassName("pagelinks");
+            for (i = 0; i < pagelinks.length; i++) {
+                pagelinks[i].className = pagelinks[i].className.replace(" active", "");
+            }
+            document.getElementById(pageName).style.display = "block";
+            evt.currentTarget.className += " active";
+            
+            window.document.body.scrollTop = 0;//切頁時scollbar自動回頂部
+            window.document.documentElement.scrollTop = 0;
         }
 
     </script>
