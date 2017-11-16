@@ -21,13 +21,10 @@
         padding-bottom: 100px;
     }
     #id-footer {
-        /* 設定footer的高度 */
         height: 80px;
         box-sizing: border-box;
-        /* 設定footer絕對位置在底部 */
         position: absolute;
-        bottom: 0;
-        /* 展開footer寬度 */
+        bottom: 0;/* 絕對位置在底部 */
         width: 100%;
     }
     .web-content{
@@ -36,6 +33,53 @@
         position:absolute;
     }
     .portrait-about{
+        border-radius: 50%;
+    }
+    .home-img-content{
+        
+        width:auto;
+        height: 400px;
+        position:relative;
+        margin-left: -100px;
+        border:solid 3px #3f9ac4;
+        -moz-border-radius: 18px;
+        -webkit-border-radius: 18px;
+        border-radius: 18px;
+    }
+    .home-text{
+        color: #FFF7C8;
+        position: fixed;
+        top: 550px;
+        left: -30px;
+        right: -30px;
+        background: rgb(90, 51, 74);
+        width: auto;
+        height: auto;
+        border: none;
+        outline: none;
+        font-size: 70px;
+        padding: 15px 80px;
+        border:dashed 3px #ff70a0;
+        -moz-border-radius: 40px;
+        -webkit-border-radius: 40px;
+        border-radius: 40px;
+    }
+    .home-text-mid{
+        color: #FFF5DE;
+        position:absolute;
+        top: 400px;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin:auto;
+        background: rgb(80, 80, 80);
+        width: 380px;
+        height: 380px;
+        font-size: 40px;
+        padding: 150px 15px;
+        border:double 15px #bdf7ff;
+        -moz-border-radius: 75px;
+        -webkit-border-radius: 75px;
         border-radius: 50%;
     }
     .list{
@@ -178,7 +222,7 @@
                 <button class="pagelinks w3-left w3-black" onclick="openPage(event, 'home')">Jrajazon's Artwork</button>
             </div>
 
-            <div class="tab  container">
+            <div class="tab container">
                 <div class="absolute">
                 <button id="default" class="pagelinks" onclick="openPage(event, 'home')"> Home</button>
                 <button class="pagelinks" onclick="openPage(event, 'portfolio')">Portfolio</button>
@@ -194,7 +238,10 @@
 
             <!-- Home -->
             <div id="home" class="pageContent">
-
+                
+                <img class="home-img-content" src="https://lh4.googleusercontent.com/1haWNgIkStFdZLHQ205_orsT3A_xydPp369eckMh67G8sSIzlUDCIUVfSYifLKwr023Z3gghrzn50LLqqGDf=w1920-h949-rw" alt="sf-wip">
+                <div class="home-text">W.I.P</div>
+                <div class="home-text-mid">~ Coming Soon ~</div>
             </div>
 
             <!-- Gallery Grid -->
@@ -263,12 +310,12 @@
             </div><!-- End Gallery Grid -->
 
             <!-- About Section -->
-            <div id="about" class="w3-container dark-grey w3-text-light-grey w3-padding-32 pageContent">
+            <div id="about" class="w3-container dark-grey w3-center w3-text-light-grey w3-padding-32 pageContent">
             <h2><b>About Me</b></h2>
             <img src="https://orig00.deviantart.net/52e0/f/2015/023/c/4/profile_picture_by_jrajazon-d8f5aim.jpg" alt="Me" class="w3-image w3-padding-32 portrait-about" width="150" height="150">
             <div class="w3-content w3-justify" style="max-width:600px">
                 <h3>Jrajazon ~詹杰燊~</h3>
-                <p>一位正在學習寫網頁及愛畫畫的菜鳥</p>
+                <p>寫程式會神遊，喜愛畫畫，學習網頁設計中</p>
                 
                 
               <!--<hr class="w3-opacity">
